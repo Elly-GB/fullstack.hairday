@@ -42,6 +42,9 @@ export function hoursLoad({ date }) {
     hours.append(li)
   })
 
+  // ...click event...
+  hoursClick()
+
 }
 
 // 
