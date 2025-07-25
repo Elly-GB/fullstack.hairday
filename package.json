@@ -4,6 +4,7 @@
   "author": "Gabrielly B.",
   "scripts": {
     "server": "json-server --watch server.json --port 3333",
+    "dev": "webpack server",
     "build": "webpack"
   },
   "dependencies": {
