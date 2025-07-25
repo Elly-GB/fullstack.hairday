@@ -8,10 +8,15 @@ export function hoursLoad({ date }) {
     // Recupera somente as horas...
     const [scheduleHour] = hour.split(":") // Faz o ":" se tornar um divisor (9:00 -> [9], [00])
 
-    // Add 'hour' na 'date' e verifica se a data é antes da atual...
-    const isHourPast = dayjs(date).add(scheduleHour, "hour").isBefore(dayjs())
+    // Add 'hour' na 'date' e verifica se a data é depois da atual...
+    const isHourPast = dayjs(date).add(scheduleHour, "hour").isAfter(dayjs())
 
-    console.log(isHourPast)
+    // Retorna o horário e sua disponibilidade...
+    return {
+      hour,
+      available: isHourPast,
+    }
+
   })
 }
 
