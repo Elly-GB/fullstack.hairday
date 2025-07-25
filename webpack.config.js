@@ -14,15 +14,17 @@ module.exports = {
 
   devServer: {
     static: {
-      directory: path.join(__dirname, "dist")
+      directory: path.join(__dirname, "dist"),
     },
     port: 3000,
     open: true,
     liveReload: true,
   },
 
-  plugins: [new HtmlWebpackPlugin({
+  plugins: [
+    new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "index.html"),
+      favicon: path.resolve("src", "assets", "scissors.svg"),
     }),
   ],
 }
