@@ -4,12 +4,13 @@ export async function scheduleNew({ id, name, when }) {
 
   try {
     await fetch(`${apiConfig.baseURL}/schedules`, {
-      method: 'POST',
-      header: {
-        "Content-Type": "application/json"
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ id, name, when }),
     })
+    
     alert("Agendamento realizado.")
 
   } catch (error) {

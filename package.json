@@ -3,7 +3,7 @@
   "description": "Aplicação web para Agendamento de horários.",
   "author": "Gabrielly B.",
   "scripts": {
-    "server": "json-server --watch server.json --port 3333",
+    "server": "json-server --watch server.json --port 3000",
     "dev": "webpack server",
     "build": "webpack"
   },
