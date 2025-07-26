@@ -1,13 +1,15 @@
 import dayjs from "dayjs"
 
 import { openingHours } from "../../utils/opening-hours.js"
-import { hoursClick } from "../form/hours-click.js"
+import { hoursClick } from "../form/hours-click.js" // Holly Molly '-'
 
 // ...const...
 const hours = document.getElementById("hours")
 
 // ...hours...
 export function hoursLoad({ date }) {
+  hours.innerHTML = "" // ...cleaning...
+
   const opening = openingHours.map((hour) => {
     // Recupera somente os horários...
     const [scheduleHour] = hour.split(":") // Faz o ":" se tornar um divisor (9:00 -> [9], [00])
