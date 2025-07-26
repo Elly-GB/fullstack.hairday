@@ -10,11 +10,10 @@ export async function scheduleNew({ id, name, when }) {
       },
       body: JSON.stringify({ id, name, when }),
     })
-
-    // Mensagem de Realização.
+    // Mensagem de realização.
     alert("Agendamento realizado.")
   } catch (error) {
-    alert("Não foi possível agendar. Tente novamente mais tarde.")
     console.log(error)
+    alert("Não foi possível agendar. Tente novamente mais tarde.")
   }
 }
