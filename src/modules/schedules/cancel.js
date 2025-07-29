@@ -1,0 +1,1 @@
+const periods = document.querySelectorAll(".period")
