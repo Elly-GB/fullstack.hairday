@@ -50,6 +50,7 @@ form.onsubmit = async (event) => {
     })
 
     await schedulesDay() // Faz-Tudo (Limpa, Lava e Recarrega)
+    clientName.value = ""
 
   } catch (error) {
     alert("Não foi possível realizar o agendamento.")
