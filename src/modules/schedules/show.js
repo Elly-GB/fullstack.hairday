@@ -14,23 +14,35 @@ export function schedulesShow({ dailySchedules }) {
 
     // to HTML...
     dailySchedules.forEach((schedule) => {
-      // ITEM (li)
+      // -- CONTENTS --
       const item = document.createElement("li")
-      item.setAttribute("data-id", schedule.id) // ID do agendamento.
-      // TIME (strong)
       const time = document.createElement("strong")
-      time.textContent = dayjs(schedule.when).format("HH:mm")
-      // NAME (span)
       const name = document.createElement("span")
-      name.textContent = schedule.name
+
+      item.setAttribute("data-id", schedule.id) // ITEM - ID do agendamento.
+      time.textContent = dayjs(schedule.when).format("HH:mm") // TIME - Horário.
+      name.textContent = schedule.name // NAME - Nome.
+
       // CANCEL ICON (img)
       const cancelIcon = document.createElement("img")
-      cancelIcon.classList.add("cancel-icon") // classe
+
+      cancelIcon.classList.add("cancel-icon")
       cancelIcon.setAttribute("src", "./src/assets/cancel.svg")
       cancelIcon.setAttribute("alt", "Cancelar Agendamento.")
 
       // APPENDS
       item.append(time, name, cancelIcon)
+
+      // -- PERIODS --
+      const hour = dayjs(schedule.when).hour() // Obtém o horário selecionado...
+
+      if(hour <= 12) {
+        periodMorning.appendChild(item)
+      } else if (hour > 12 && hour <= 18 ) {
+        periodAfternoon.appendChild(item)
+      } else {
+        periodNight.appendChild(item)
+      }
 
     });
     
