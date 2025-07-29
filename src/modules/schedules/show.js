@@ -23,7 +23,14 @@ export function schedulesShow({ dailySchedules }) {
       // NAME (span)
       const name = document.createElement("span")
       name.textContent = schedule.name
-     
+      // CANCEL ICON (img)
+      const cancelIcon = document.createElement("img")
+      cancelIcon.classList.add("cancel-icon") // classe
+      cancelIcon.setAttribute("src", "./src/assets/cancel.svg")
+      cancelIcon.setAttribute("alt", "Cancelar Agendamento.")
+
+      // APPENDS
+      item.append(time, name, cancelIcon)
 
     });
     
