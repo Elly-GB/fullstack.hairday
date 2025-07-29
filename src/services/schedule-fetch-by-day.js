@@ -13,7 +13,7 @@ export async function scheduleFetchByDay({ date }) {
       dayjs(date).isSame(schedule.when, "day")
     )
 
-    return dailySchedules // Não tem () ?
+    return dailySchedules
 
   } catch (error) {
     console.log(error);
