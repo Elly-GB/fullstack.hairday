@@ -7,20 +7,28 @@ import { hoursClick } from "../form/hours-click.js" // Holly Molly '-'
 const hours = document.getElementById("hours")
 
 // ...hours...
-export function hoursLoad({ date }) {
+export function hoursLoad({ date, dailySchedules }) {
   hours.innerHTML = "" // ...cleaning...
 
+  // Horários Ocupados.
+  const unavailableHours = dailySchedules.map((schedule) =>
+    dayjs(schedule.when).format("HH:mm")
+  )
+
+  // Horários Disponíveis.
   const opening = openingHours.map((hour) => {
     // Recupera somente os horários...
     const [scheduleHour] = hour.split(":") // Faz o ":" se tornar um divisor (9:00 -> [9], [00])
 
     // Add 'hour' na 'date' e verifica se a data é depois da atual...
-    const isHourPast = dayjs(date).add(scheduleHour, "hour").isAfter(dayjs())
+    const isHourPast = dayjs(date).add(scheduleHour, "hour").isBefore(dayjs())
+
+    const available = !unavailableHours.includes(hour) || !isHourPast
 
     // Retorna o horário e sua disponibilidade...
     return {
       hour,
-      available: isHourPast,
+      available,
     }
   })
 
