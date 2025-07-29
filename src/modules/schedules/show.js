@@ -7,7 +7,7 @@ const periodNight = document.getElementById("period-night")
 
 export function schedulesShow({ dailySchedules }) {
   try {
-    // ...Washing...
+    // ...Cleaning...
     periodMorning.innerHTML = ""
     periodAfternoon.innerHTML = ""
     periodNight.innerHTML = ""
