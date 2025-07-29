@@ -23,7 +23,7 @@ export function hoursLoad({ date, dailySchedules }) {
     // Add 'hour' na 'date' e verifica se a data é depois da atual...
     const isHourPast = dayjs(date).add(scheduleHour, "hour").isBefore(dayjs())
 
-    const available = !unavailableHours.includes(hour) || !isHourPast
+    const available = !unavailableHours.includes(hour) && !isHourPast
 
     // Retorna o horário e sua disponibilidade...
     return {
