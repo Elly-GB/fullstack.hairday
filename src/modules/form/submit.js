@@ -41,7 +41,7 @@ form.onsubmit = async (event) => {
     const when = dayjs(selectedDate.value).add(hour, "hour")
     
     // ...make ID...
-    const id = new Date().getTime()
+    const id = new Date().getTime().toString()
 
     await scheduleNew ({
       id,
